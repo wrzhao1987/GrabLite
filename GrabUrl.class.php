@@ -7,6 +7,7 @@ class GrabUrl extends Grab
         parent::__construct();
     }
 
+    //Fetch the urls
     public function fetch($feed_url, $turns='')
     {
         if (is_array($feed_url))
@@ -44,7 +45,7 @@ class GrabUrl extends Grab
         }
         echo "Done.\n";
     }
-
+    // Filter the unused file extension name
     private static function verifyExtesion($url)
     {
         $ext = substr(strrchr($url, '.'), 1);
@@ -72,6 +73,7 @@ class GrabUrl extends Grab
         return $filter_result;
     }
 
+    // Save the url list to the database.
     protected function save($url_list)
     {
         $db = My_MySQL::getInstance();
