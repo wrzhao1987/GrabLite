@@ -34,11 +34,11 @@ class GrabUrl extends Grab
                         $href_regex = '%<a[\s\S]*?href="([^"]+)[^>]+>([\s\S]*?)</a>%';
                         preg_match_all($href_regex, $page, $delta, PREG_PATTERN_ORDER);
                         $delta = $this->filter($delta);
+                        $this->save($delta);
                         $list = array_merge($delta, $list);
                         $list = array_unique($list);
                     }
                 }
-                $this->save($list);
                 $feed_url = $list;
                 echo "$i round completed.\n";
             }
