@@ -28,7 +28,7 @@ class GrabUrl extends Grab
                         continue;
                     }
                     echo "Fetching $url.\n";
-                    $page = file_get_contents($url);
+                    $page = self::getPage($url);
                     if ( !empty($page))
                     {
                         $href_regex = '%<a[\s\S]*?href="([^"]+)[^>]+>([\s\S]*?)</a>%';
@@ -44,6 +44,15 @@ class GrabUrl extends Grab
             }
         }
         echo "Done.\n";
+    }
+    private static function getPage($url)
+    {
+        $ch = curl_init($url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 3);
+        $content = curl_exec($ch);
+        curl_close($ch);
+        return empty($content) ? '' : $content;
     }
     // Filter the unused file extension name
     private static function verifyExtesion($url)
