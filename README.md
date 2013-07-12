@@ -10,12 +10,14 @@ php index.php [URL] [turns]
 url: The feed URL you want to start with;
 
 turns: The loops which the application runs. For example, We fetched URL B, C and D from feed URL A.
-       If you set the 'turns' parameter to '2', the application will start to grab more URLs from B, C and D in the second loop.
+       If you set the 'turns' parameter to '2', the application will start to grab more URLs from B, C and D in the second loop. Then the B, C and D will be the feed URLs for the next loop.
 
+========
 The grabbed results will be wroten into the table named 'url_queue'
 
 The database configuration is located in config.ini.php.
 
+========
 PLEASE!! Create the database named 'spider' manually by the SQL below:
 
 CREATE DATABASE spider;
