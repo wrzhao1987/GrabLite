@@ -6,7 +6,9 @@ $config = array (
         array ('host' => '127.0.0.1', 'port' => 11211, 'weight' => 100),
     ),
     'pdo_config'      => array (
-        'dsn'     => 'mysql:dbname=spider;host=127.0.0.1',
+        'dsn'      => 'mysql:dbname=spider;host=127.0.0.1',
+        'host'     => '127.0.0.1',
+        'dbname'   => 'spider',
         'username' => 'root',
         'password' => '',
         'charset'  => 'utf8',

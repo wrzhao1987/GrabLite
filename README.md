@@ -14,3 +14,7 @@ turns: The loops which the application runs. For example, We fetched URL B, C an
 
 
 The database configuration is located in config.ini.php.
+
+PLEASE!! Create the database named 'spider' manually by the SQL below:
+
+CREATE DATABASE spider;

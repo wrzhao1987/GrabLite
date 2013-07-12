@@ -9,18 +9,16 @@ include 'GrabUrl.class.php';
 **/
 $create_sql =
     "
-    CREATE DATABASE IF NOT EXISTS spider;
     CREATE TABLE IF NOT EXISTS url_queue(
         id INT(10) NOT NULL AUTO_INCREMENT,
         url_hash CHAR(32) NOT NULL,
         url_content VARCHAR(255) NOT NULL DEFAULT '',
         status TINYINT(1) NOT NULL DEFAULT 0,
-        add_time TIMESTAMP NOT NULLULL DEFAULT CURRENT_TIMESTAMP,
         update_time TIMESTAMP NOT NULL DEFAULT  CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
         PRIMARY KEY(`id`),
         UNIQUE KEY(`url_hash`),
         KEY `hash_status` (`url_hash`, `status`)
-    )ENGINE=ENGINEInnoDB DEFAULT CHARSET=utf8;
+    )ENGINE=InnoDB DEFAULT CHARSET=utf8;
     ";
 $db = My_MySQL::getInstance();
 $db->connection->exec($create_sql);
