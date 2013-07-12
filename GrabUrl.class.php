@@ -49,7 +49,7 @@ class GrabUrl extends Grab
     private static function verifyExtesion($url)
     {
         $ext = substr(strrchr($url, '.'), 1);
-        return in_array ($ext, array('exe', 'dmg', 'pkg', 'mp3', 'mp4', 'rar', 'zip') ) ? false : true;
+        return in_array ($ext, array('pdf', 'exe', 'dmg', 'pkg', 'mp3', 'mp4', 'rar', 'zip') ) ? false : true;
     }
 
     protected function filter($href_res)
